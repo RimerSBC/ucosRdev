@@ -1,0 +1,2 @@
+Release_uf2/user_iface_demo.c.o
+Release_uf2/src_main.c.o Release_uf2/src_syscalls.c.o Release_uf2/src_startup.c.o

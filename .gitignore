@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+Debug/
+Release/
+Release_uf2/
+compile_commands.json
+uf2conv
+
