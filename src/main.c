@@ -36,9 +36,7 @@
 
 #include "iface_demo.h" 
 
-/**
- * @brief Register user-defined interface using add_interface()
- */
+/// Register user-defined interface using add_interface()
 void interface_register(void)
 {
     add_interface(&ifaceDemo);
@@ -46,6 +44,7 @@ void interface_register(void)
 
 int main(void)
 {
+    AppGreeting = "-- ucosR Demo app";
     bsp_init();
     xTaskCreate(ucosR_task, "ucosR", configMINIMAL_STACK_SIZE, NULL, 2, NULL);
     vTaskStartScheduler();

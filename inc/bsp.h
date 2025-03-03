@@ -45,10 +45,6 @@
 
 #define SYS_CLOCK_FREQ		120000000
 
-#define VERSION         0
-#define SUBVERSION      60
-
-
 #define SAMD51				1
 #define BOARD_USB_ENABLE	    0
 
