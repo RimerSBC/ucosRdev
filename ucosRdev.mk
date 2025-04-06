@@ -2,10 +2,10 @@
 ## Auto Generated makefile by CodeLite IDE
 ## any manual changes will be erased      
 ##
-## Release_uf2
+## Debug
 ProjectName            :=ucosRdev
-ConfigurationName      :=Release_uf2
-WorkspaceConfiguration :=Release_uf2
+ConfigurationName      :=Debug
+WorkspaceConfiguration :=Debug
 WorkspacePath          :=/Users/sergey/projloc/ucosRdev
 ProjectPath            :=/Users/sergey/projloc/ucosRdev
 IntermediateDirectory  :=$(ConfigurationName)
@@ -14,7 +14,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=sergey
-Date                   :=03/03/2025
+Date                   :=05/04/2025
 CodeLitePath           :=/Users/sergey/.codelite
 LinkerName             :=/Applications/arm/bin/arm-none-eabi-gcc
 SharedObjectLinkerName :=/Applications/arm/bin/arm-none-eabi-g++ -shared -fPIC
@@ -37,12 +37,12 @@ PreprocessOnlySwitch   :=-E
 ObjectsFileList        :="ucosRdev.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
-LinkOptions            := -mthumb --specs=nosys.specs -Wl,--gc-sections -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -TucosR_1M_256k_uf2.ld
+LinkOptions            := -TucosR_1M_256k.ld -mthumb --specs=nosys.specs -Wl,--gc-sections -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16
 IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch)inc $(IncludeSwitch)inc/cmsis $(IncludeSwitch)inc/samd51 $(IncludeSwitch)inc/kernel $(IncludeSwitch)user/ 
 IncludePCH             := 
 RcIncludePath          := 
-Libs                   := $(LibrarySwitch)ucosR $(LibrarySwitch)m 
-ArLibs                 :=  "ucosR" "m" 
+Libs                   := $(LibrarySwitch)m $(LibrarySwitch)ucosR 
+ArLibs                 :=  "m" "ucosR" 
 LibPath                := $(LibraryPathSwitch)lib 
 
 ##
@@ -52,8 +52,8 @@ LibPath                := $(LibraryPathSwitch)lib
 AR       := /Applications/arm/bin/arm-none-eabi-ar rcu
 CXX      := /Applications/arm/bin/arm-none-eabi-g++
 CC       := /Applications/arm/bin/arm-none-eabi-gcc
-CXXFLAGS :=  -O1 -Wall $(Preprocessors)
-CFLAGS   := -mthumb -ffunction-sections -fdata-sections -mcpu=cortex-m4 -std=gnu99 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -O1 -Wall $(Preprocessors)
+CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
+CFLAGS   := -mthumb -ffunction-sections -fdata-sections -mcpu=cortex-m4 -std=gnu99 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
 AS       := /Applications/arm/bin/arm-none-eabi-as
 
@@ -86,9 +86,8 @@ $(OutputFile): $(IntermediateDirectory)/.d $(Objects)
 
 PostBuild:
 	@echo Executing Post Build commands ...
-	/Applications/ARM/bin/arm-none-eabi-size Release_uf2/ucosRdev
-	/Applications/ARM/bin/arm-none-eabi-objcopy -O binary Release_uf2/ucosRdev Release_uf2/ucosRdev.bin
-	./uf2conv Release_uf2/ucosRdev.bin ucosRdev.uf2
+	/Applications/ARM/bin/arm-none-eabi-size Debug/ucosRdev
+	/Applications/ARM/bin/arm-none-eabi-objcopy -O ihex Debug/ucosRdev Debug/ucosRdev.hex
 	@echo Done
 
 MakeIntermediateDirs:
